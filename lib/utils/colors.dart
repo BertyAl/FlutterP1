@@ -11,5 +11,6 @@ const creamUI  = Color(0xFFCDC6AE);
 
 const main1= Color(0xFFFFF8D6);
 const middle1= Color(0xFFF7E1AE);
-const upper1 = Color(0xFFA4D0A4);
+
+const upper1 = Color(0xFFA4D0A4); //Color untuk button
 const lower1 = Color(0xFF617A55);

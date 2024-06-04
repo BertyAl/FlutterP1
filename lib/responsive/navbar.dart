@@ -3,7 +3,6 @@ import 'package:flutter_project1/screens/profile_screen.dart';
 import 'package:flutter_project1/utils/colors.dart';  // Ensure the path to colors.dart is correct
 import 'package:flutter_project1/homepage.dart';
 import 'package:flutter_project1/screens/ticket_screen.dart';
-import 'package:flutter_project1/screens/profile_screen.dart';
 
 class SimpleBottomNavigation extends StatefulWidget {
   const SimpleBottomNavigation({Key? key}) : super(key: key);
