@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project1/utils/colors.dart';
+import 'package:flutter_project1/screens/register_screen.dart';
 
 class Homepages extends StatelessWidget {
    Homepages({Key? key}) : super(key: key);
@@ -79,8 +80,22 @@ class _ProfileIcon extends StatelessWidget {
     return PopupMenuButton<Menu>(
         icon: const Icon(Icons.person,),
         offset: const Offset(0, 40),
-        onSelected: (Menu item) {},
+        onSelected: (Menu item) {
+          switch (item){
+            case Menu.itemOne:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SignupPage()),
+              );
+              break;
+            case Menu.itemTwo:
+              break;
+            case Menu.itemThree:
+              break;
+          }
+        },
         color: Colors.white,
+
         itemBuilder: (BuildContext context) => <PopupMenuEntry<Menu>>[
           const PopupMenuItem<Menu>(
             value: Menu.itemOne,
