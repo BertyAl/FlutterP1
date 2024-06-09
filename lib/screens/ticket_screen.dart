@@ -126,7 +126,7 @@ final List<Article> _articles = [
   Article(
     title: "Tiket Masuk (Tanpa Konser)",
     author: "Mulai Dari Rp 40.000",
-    imageUrl: "https://cms.disway.id/uploads/0d7d6a0384367d29dd860127a74005b6.jpg",
+    imageUrl: "https://awsimages.detik.net.id/visual/2023/06/15/pengunjung-memadati-jakarta-fair-kemayoran-jfk-2023-di-jiexpo-kemayoran-jakarta-rabu-1462023-cnbc-indonesiafaisal-rahman-4_169.jpeg?w=650",
 
   ),
   Article(
