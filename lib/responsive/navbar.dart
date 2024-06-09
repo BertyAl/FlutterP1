@@ -57,7 +57,7 @@ const _navBarItems = [
   BottomNavigationBarItem(
     icon: Icon(Icons.sticky_note_2_outlined),
     activeIcon: Icon(Icons.sticky_note_2_sharp),
-    label: 'Tickets',
+    label: 'Orders',
   ),
   // BottomNavigationBarItem(
   //   icon: Icon(Icons.shopping_bag_outlined),

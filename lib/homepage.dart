@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:flutter_project1/utils/colors.dart';
 import 'package:flutter_project1/screens/register_screen.dart';
 import 'package:flutter_project1/screens/ticket_screen.dart';
+import 'package:flutter_project1/screens/parking_screen.dart';
+import 'package:flutter_project1/screens/transportasi_screen.dart';
+import 'package:flutter_project1/screens/kupon_screen.dart';
 
 class Homepages extends StatefulWidget {
   const Homepages({Key? key}) : super(key: key);
@@ -215,22 +218,22 @@ class CategoryList extends StatelessWidget {
               );
               break;
             case 'Parkir':
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => ProfileScreen()),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ParkingScreen()),
+              );
               break;
             case 'Kupon':
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => ProfileScreen()),
-            // );
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => KuponScreen()),
+            );
               break;
             case 'Transportasi':
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => ProfileScreen()),
-            // );
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => TransportasiScreen()),
+            );
               break;
             default:
               break;
