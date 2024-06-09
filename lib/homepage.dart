@@ -46,6 +46,8 @@ class Homepages extends StatelessWidget {
     );
   }
 
+
+
   Widget _drawer() => Drawer(
     backgroundColor: Colors.white,
     child: ListView(
@@ -99,17 +101,17 @@ class _ProfileIcon extends StatelessWidget {
         itemBuilder: (BuildContext context) => <PopupMenuEntry<Menu>>[
           const PopupMenuItem<Menu>(
             value: Menu.itemOne,
-            child: Text('Account'),
+            child: Text('Login'),
 
           ),
-          const PopupMenuItem<Menu>(
-            value: Menu.itemTwo,
-            child: Text('Settings'),
-          ),
-          const PopupMenuItem<Menu>(
-            value: Menu.itemThree,
-            child: Text('Sign Out'),
-          ),
+          // const PopupMenuItem<Menu>(
+          //   value: Menu.itemTwo,
+          //   child: Text('Settings'),
+          // ),
+          // const PopupMenuItem<Menu>(
+          //   value: Menu.itemThree,
+          //   child: Text('Sign Out'),
+          // ),
         ]);
   }
 }
