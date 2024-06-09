@@ -6,6 +6,8 @@ import 'package:flutter_project1/screens/ticket_screen.dart';
 import 'package:flutter_project1/screens/parking_screen.dart';
 import 'package:flutter_project1/screens/transportasi_screen.dart';
 import 'package:flutter_project1/screens/kupon_screen.dart';
+import 'package:flutter_project1/screens/konser_screen.dart';
+import 'package:flutter_project1/screens/peta_screen.dart';
 
 class Homepages extends StatefulWidget {
   const Homepages({Key? key}) : super(key: key);
@@ -194,6 +196,9 @@ class CategoryList extends StatelessWidget {
           CategoryItem('https://asset.kompas.com/crops/4fVsd9xuwtYOuZQT1cw5ICawJog=/0x26:1000x693/750x500/data/photo/2017/12/20/3512715862.jpg', 'Parkir'),
           CategoryItem('https://c.alfagift.id/product/1/1_A12790040900_20240314131805179_base.jpg', 'Kupon'),
           CategoryItem('https://www.langqing-ev.com/ImageHandler/0-0/UploadFiles/Images/electric-shuttle-bus-lqy140a.jpg', 'Transportasi'),
+          CategoryItem('https://awsimages.detik.net.id/community/media/visual/2023/08/25/the-sounds-project_43.jpeg?w=700&q=90', 'Konser'),
+          CategoryItem('https://i.ytimg.com/vi/nOjaWXRT5rA/maxresdefault.jpg', 'Peta'),
+
         ],
       ),
     );
@@ -234,6 +239,17 @@ class CategoryList extends StatelessWidget {
               context,
               MaterialPageRoute(builder: (context) => TransportasiScreen()),
             );
+            case 'Konser':
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => KonserScreen()),
+              );
+              break;
+            case 'Peta':
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => PetaScreen()),
+              );
               break;
             default:
               break;
