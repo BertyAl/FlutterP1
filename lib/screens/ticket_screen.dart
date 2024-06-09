@@ -29,7 +29,7 @@ class _TicketScreenState extends State<TicketScreen> {
               itemBuilder: (BuildContext context, int index) {
                 final item = _articles[index];
                 return Container(
-                  height: 136,
+                  height: 155,
                   margin:
                   const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
                   decoration: BoxDecoration(
