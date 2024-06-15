@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_project1/screens/profile_screen.dart';
 import 'package:flutter_project1/utils/colors.dart';  // Ensure the path to colors.dart is correct
 import 'package:flutter_project1/homepage.dart';
-import 'package:flutter_project1/screens/ticket_screen.dart';
+import 'package:flutter_project1/screens/order_screen.dart';
 
 class SimpleBottomNavigation extends StatefulWidget {
   const SimpleBottomNavigation({Key? key}) : super(key: key);
@@ -16,7 +16,7 @@ class _SimpleBottomNavigationState extends State<SimpleBottomNavigation> {
   int _selectedIndex = 0;
   final List<Widget> _pages = [
     Homepages(),
-    TicketScreen(),
+    OrderScreen(),
     ProfileScreen(),
   ];
 
@@ -57,7 +57,7 @@ const _navBarItems = [
   BottomNavigationBarItem(
     icon: Icon(Icons.sticky_note_2_outlined),
     activeIcon: Icon(Icons.sticky_note_2_sharp),
-    label: 'Tickets',
+    label: 'Orders',
   ),
   // BottomNavigationBarItem(
   //   icon: Icon(Icons.shopping_bag_outlined),
