@@ -36,6 +36,7 @@ class _SeatWidgetState extends State<SeatWidget> with AutomaticKeepAliveClientMi
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Consumer<SelectionButtonProvider>(
       builder: (context, provider, child) {
         log("SeatWidget Rebuilt");

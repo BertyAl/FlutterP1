@@ -1,9 +1,10 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_project1/utils/colors.dart';
-import 'package:flutter_project1/homepage.dart';  // Make sure the path is correct
 import 'package:flutter_project1/responsive/navbar.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 

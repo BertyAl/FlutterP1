@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:provider/provider.dart';
 
 import 'package:flutter_project1/utils/colors.dart';
 import 'package:flutter_project1/screens/register_screen.dart';

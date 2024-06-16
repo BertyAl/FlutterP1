@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project1/utils/colors.dart';
 
 
 class KonserScreen extends StatefulWidget {
