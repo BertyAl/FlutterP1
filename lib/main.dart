@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_project1/responsive/navbar.dart';
+import 'package:flutter_project1/screens/splash_screen.dart';
 import 'firebase_options.dart';
 /// // ...
 /// await Firebase.initializeApp(
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFF075E54),// You can use your custom color
         canvasColor: Colors.white,
       ),
-      home: SimpleBottomNavigation(),
+      home: SplashScreen(),
     );
   }
 }
