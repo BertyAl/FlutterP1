@@ -36,7 +36,10 @@ dependencies:
   firebase_core: ^3.1.0
   firebase_analytics: ^11.0.1
   firebase_auth: ^5.1.0
-
+  #app_check setelah di upload ke appstore baru dapat menggunakan SHA certificate
+  firebase_app_check: ^0.3.0+1
+  firebase_storage: ^12.0.1
+  cloud_firestore: ^5.0.1
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
@@ -50,7 +53,7 @@ dev_dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/images/logo.png"
+  image_path: "assets/logo/logo1.png"
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -71,7 +74,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-      - assets/images/
+      - assets/logo/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

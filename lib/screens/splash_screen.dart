@@ -17,10 +17,10 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   _navigateToHome() async {
-    await Future.delayed(Duration(seconds: 3), () {}); // Duration for the splash screen
+    await Future.delayed(Duration(seconds: 3), () {});
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => LoginPage()), // Navigate to your main screen
+      MaterialPageRoute(builder: (context) => LoginPage()),
     );
   }
 
@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/logo.png', height: 250, width: 250), // Your logo image
+            Image.asset('assets/logo/logo1.png', height: 250, width: 250),
             SizedBox(height: 20),
             CircularProgressIndicator(), // Optional loading indicator
           ],
