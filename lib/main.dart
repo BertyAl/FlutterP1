@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'WhatsApp Clone',
       theme: ThemeData(
         primaryColor: Color(0xFF075E54),// You can use your custom color
