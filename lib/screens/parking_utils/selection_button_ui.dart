@@ -7,7 +7,7 @@ import 'package:flutter_project1/screens/parking_utils/confirm_selection_page.da
 import 'package:flutter_project1/screens/parking_utils/model/seat.dart';
 import 'package:flutter_project1/screens/parking_utils/provider/selection_button_provider.dart';
 import 'package:flutter_project1/utils/colors.dart';
-import 'package:flutter_project1/main.dart';
+import 'package:flutter_project1/responsive/navbar.dart';
 
 class SelectionButtonPage extends StatefulWidget {
   const SelectionButtonPage({super.key});
@@ -54,7 +54,7 @@ class _SelectionButtonPageState extends State<SelectionButtonPage> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => MyApp()),
+              MaterialPageRoute(builder: (context) => SimpleBottomNavigation()), // Ensure HomePage is imported
             );
           },
         ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project1/utils/colors.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:flutter_project1/responsive/navbar.dart';
 
 
 class OrderScreen extends StatefulWidget {
@@ -69,7 +69,15 @@ class _OrderScreenState extends State<OrderScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(
+        onWillPop: () async {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SimpleBottomNavigation()), // Ensure HomePage is imported
+      );
+      return false;
+    },
+    child: Scaffold(
       appBar: AppBar(
         backgroundColor: main1,
         title: Text('Ordering Page'),
@@ -92,6 +100,7 @@ class _OrderScreenState extends State<OrderScreen> {
         onAddToCart: _addToCart,
       ),
       backgroundColor: Colors.white,
+    ),
     );
   }
 }

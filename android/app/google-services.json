@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "69177756351",
+    "project_id": "flutter-softdev-uas",
+    "storage_bucket": "flutter-softdev-uas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69177756351:android:768e73e0c6df7f0d0f540a",
+        "android_client_info": {
+          "package_name": "com.example.flutter_project1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAA6jQRl7i4FC7P33gbooZQmV_UakeFgWI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
