@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 import 'package:flutter_project1/utils/colors.dart';
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({super.key});
+  const SettingsScreen({Key? key});
 
   @override
   _SettingsScreenState createState() => _SettingsScreenState();
@@ -57,6 +60,66 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
   }
 
+  Future<String> _uploadImage(File imageFile) async {
+    try {
+      final String uid = _currentUser!.uid;
+      final Reference storageRef = FirebaseStorage.instance.ref().child('users/$uid/profile.jpg');
+      final UploadTask uploadTask = storageRef.putFile(imageFile);
+
+      // Get download URL
+      final TaskSnapshot taskSnapshot = await uploadTask;
+      final String downloadUrl = await taskSnapshot.ref.getDownloadURL();
+
+      return downloadUrl;
+    } catch (e) {
+      print('Image upload failed: $e');
+      throw Exception('Image upload failed: $e');
+    }
+  }
+
+  Future<void> _pickImage() async {
+    try {
+      final picker = ImagePicker();
+      final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+      if (pickedFile != null) {
+        File imageFile = File(pickedFile.path);
+        String imageUrl = await _uploadImage(imageFile);
+
+        // Update user profile with new photo URL
+        await _currentUser!.updateProfile(photoURL: imageUrl);
+
+        // Refresh the user object to get the updated data
+        _currentUser = FirebaseAuth.instance.currentUser;
+
+        // Update Firestore with new display name and photo URL
+        await FirebaseFirestore.instance
+            .collection('users')
+            .doc(_currentUser!.uid)
+            .update({
+          'displayName': _nameController.text,
+          'email': _emailController.text,
+          'photoURL': imageUrl,
+        });
+
+        setState(() {
+          // Update UI with the new image URL
+          _nameController.text = _currentUser!.displayName ?? '';
+          _emailController.text = _currentUser!.email ?? '';
+        });
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Profile image updated successfully')),
+        );
+      }
+    } catch (e) {
+      print('Image picking failed: $e');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to pick image: $e')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,10 +136,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              CircleAvatar(
-                radius: 50.0,
-                backgroundImage: NetworkImage(_currentUser?.photoURL ??
-                    'https://media.istockphoto.com/id/1337144146/id/vektor/vektor-ikon-profil-avatar-default.jpg?s=612x612&w=0&k=20&c=oMrbNlS6EplbdwqmGml8h5Sbk33Pu3FHQRJ7OyRro2o='),
+              GestureDetector(
+                onTap: _pickImage,
+                child: CircleAvatar(
+                  radius: 50.0,
+                  backgroundImage: _currentUser?.photoURL != null
+                      ? NetworkImage(_currentUser!.photoURL!)
+                      : AssetImage('assets/default_profile.jpg'), // Placeholder image
+                ),
               ),
               SizedBox(height: 20.0),
               TextFormField(
