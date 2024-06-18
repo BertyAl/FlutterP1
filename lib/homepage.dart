@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+
 import 'package:flutter_project1/utils/colors.dart';
 import 'package:flutter_project1/screens/register_screen.dart';
 import 'package:flutter_project1/screens/ticket_screen.dart';
@@ -98,13 +99,13 @@ class _HomepagesState extends State<Homepages> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(8.0),
               ),
               CategoryList(),
               Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(10.0),
               ),
-              // ProductList(),
+              CategoryList1(),
             ],
           ),
         ),
@@ -188,13 +189,30 @@ class CategoryList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 120,
+      height: 150,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
           CategoryItem('https://img.freepik.com/free-photo/old-used-brown-torn-ticket-stub-isolated_1101-3193.jpg?size=626&ext=jpg&ga=GA1.1.1395880969.1709769600&semt=ais', 'Tiket'),
           CategoryItem('https://asset.kompas.com/crops/4fVsd9xuwtYOuZQT1cw5ICawJog=/0x26:1000x693/750x500/data/photo/2017/12/20/3512715862.jpg', 'Parkir'),
           CategoryItem('https://c.alfagift.id/product/1/1_A12790040900_20240314131805179_base.jpg', 'Kupon'),
+          // CategoryItem('https://www.langqing-ev.com/ImageHandler/0-0/UploadFiles/Images/electric-shuttle-bus-lqy140a.jpg', 'Transportasi'),
+          // CategoryItem('https://awsimages.detik.net.id/community/media/visual/2023/08/25/the-sounds-project_43.jpeg?w=700&q=90', 'Konser'),
+          // CategoryItem('https://i.ytimg.com/vi/nOjaWXRT5rA/maxresdefault.jpg', 'Peta'),
+
+        ],
+      ),
+    );
+  }
+}
+class CategoryList1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 150,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
           CategoryItem('https://www.langqing-ev.com/ImageHandler/0-0/UploadFiles/Images/electric-shuttle-bus-lqy140a.jpg', 'Transportasi'),
           CategoryItem('https://awsimages.detik.net.id/community/media/visual/2023/08/25/the-sounds-project_43.jpeg?w=700&q=90', 'Konser'),
           CategoryItem('https://i.ytimg.com/vi/nOjaWXRT5rA/maxresdefault.jpg', 'Peta'),
@@ -259,7 +277,7 @@ class CategoryList extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Image.network(imagePath, width: 80, height: 80),
+              Image.network(imagePath, width: 110, height: 110),
               Material(
                 elevation: 5.0,
                 shape: RoundedRectangleBorder(
