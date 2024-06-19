@@ -60,7 +60,7 @@ class _HomepagesState extends State<Homepages> {
         key: _scaffoldKey,
         appBar: AppBar(
           backgroundColor: main1,
-          title: const Text('Homepage'),
+          title: const Text('Halaman Utama'),
           leading: isLargeScreen
               ? null
               : IconButton(
@@ -196,9 +196,6 @@ class CategoryList extends StatelessWidget {
           CategoryItem('https://img.freepik.com/free-photo/old-used-brown-torn-ticket-stub-isolated_1101-3193.jpg?size=626&ext=jpg&ga=GA1.1.1395880969.1709769600&semt=ais', 'Tiket'),
           CategoryItem('https://asset.kompas.com/crops/4fVsd9xuwtYOuZQT1cw5ICawJog=/0x26:1000x693/750x500/data/photo/2017/12/20/3512715862.jpg', 'Parkir'),
           CategoryItem('https://c.alfagift.id/product/1/1_A12790040900_20240314131805179_base.jpg', 'Kupon'),
-          // CategoryItem('https://www.langqing-ev.com/ImageHandler/0-0/UploadFiles/Images/electric-shuttle-bus-lqy140a.jpg', 'Transportasi'),
-          // CategoryItem('https://awsimages.detik.net.id/community/media/visual/2023/08/25/the-sounds-project_43.jpeg?w=700&q=90', 'Konser'),
-          // CategoryItem('https://i.ytimg.com/vi/nOjaWXRT5rA/maxresdefault.jpg', 'Peta'),
 
         ],
       ),
@@ -308,49 +305,3 @@ class CategoryList1 extends StatelessWidget {
       );
     }
   }
-
-// class ProductList extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return GridView.builder(
-//       padding: const EdgeInsets.all(16.0),
-//       shrinkWrap: true,
-//       physics: NeverScrollableScrollPhysics(),
-//       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//         crossAxisCount: 2,
-//         childAspectRatio: 3 / 4,
-//         crossAxisSpacing: 16,
-//         mainAxisSpacing: 16,
-//       ),
-//       itemCount: 4, // Number of products
-//       itemBuilder: (context, index) {
-//         return ProductItem(
-//             'https://via.placeholder.com/200', 'Product $index');
-//       },
-//     );
-//   }
-// }
-//
-// class ProductItem extends StatelessWidget {
-//   final String imagePath;
-//   final String title;
-//
-//   ProductItem(this.imagePath, this.title);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: [
-//         Expanded(
-//           child: Image.network(imagePath, fit: BoxFit.cover),
-//         ),
-//         SizedBox(height: 8),
-//         Text(
-//           title,
-//           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-//         ),
-//       ],
-//     );
-//   }
-// }

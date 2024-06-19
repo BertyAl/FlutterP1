@@ -48,7 +48,7 @@ class _SignupPageState extends State<SignupPage> {
                     children: <Widget>[
                       const SizedBox(height: 60.0),
                       const Text(
-                        "Sign up",
+                        "Daftar",
                         style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
@@ -58,7 +58,7 @@ class _SignupPageState extends State<SignupPage> {
                         height: 20,
                       ),
                       Text(
-                        "Create your account",
+                        "Mari buat akun pertamamu",
                         style: TextStyle(fontSize: 15, color: Colors.grey[700]),
                       )
                     ],
@@ -77,7 +77,7 @@ class _SignupPageState extends State<SignupPage> {
                             prefixIcon: const Icon(Icons.email)),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter your email';
+                            return 'Tolong masukkan email kamu';
                           }
                           return null;
                         },
@@ -97,7 +97,7 @@ class _SignupPageState extends State<SignupPage> {
                         obscureText: true,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter your password';
+                            return 'Tolong masukan password kamu';
                           }
                           return null;
                         },
@@ -117,9 +117,9 @@ class _SignupPageState extends State<SignupPage> {
                         obscureText: true,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please confirm your password';
+                            return 'Tolong konfirmasi password kamu';
                           } else if (value != _passwordController.text) {
-                            return 'Passwords do not match';
+                            return 'password tidak sesuai';
                           }
                           return null;
                         },
@@ -142,13 +142,13 @@ class _SignupPageState extends State<SignupPage> {
                               );
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text('Failed to sign up')),
+                                const SnackBar(content: Text('Gagal untuk mendaftar')),
                               );
                             }
                           }
                         },
                         child: const Text(
-                          "Sign up",
+                          "Daftar",
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.black,
@@ -161,7 +161,7 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       )
                   ),
-                  const Center(child: Text("Or")),
+                  const Center(child: Text("Atau")),
                   Container(
                     height: 45,
                     decoration: BoxDecoration(
@@ -194,7 +194,7 @@ class _SignupPageState extends State<SignupPage> {
                             ),
                           ),
                           const Text(
-                            "Sign In with Google",
+                            "Daftar Dengan Google",
                             style: TextStyle(
                               fontSize: 16,
                               color: Colors.black,
@@ -207,7 +207,7 @@ class _SignupPageState extends State<SignupPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      const Text("Already have an account?"),
+                      const Text("Sudah Punya Akun?"),
                       TextButton(
                         onPressed: () {
                           Navigator.push(
@@ -216,7 +216,7 @@ class _SignupPageState extends State<SignupPage> {
                           );
                         },
                         child: const Text(
-                          "Login",
+                          "Masuk",
                           style: TextStyle(color: Colors.black),
                         ),
                       )

@@ -23,6 +23,7 @@ class _LoginPageState extends State<LoginPage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        resizeToAvoidBottomInset: true,
         body: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -32,19 +33,22 @@ class _LoginPageState extends State<LoginPage> {
                   Colors.white70,
                   Colors.white,
                 ],
-              )
+              ),
           ),
-          padding: const EdgeInsets.symmetric(horizontal: 40),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                _header(context),
-                Image.asset('assets/logo/logo1.png', height: 200 , width: 200),
-                _inputField(context),
-                // _signup(context),
-              ],
+          child: SafeArea(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 40,vertical: 82),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    _header(context),
+                    Image.asset('assets/logo/logo1.png', height: 200 , width: 200),
+                    _inputField(context),
+                  ],
+                ),
+              ),
             ),
           ),
         ),
@@ -56,11 +60,10 @@ class _LoginPageState extends State<LoginPage> {
     return const Column(
       children: [
         Text(
-          "Welcome Back",
+          "Selamat Datang",
           style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
         ),
-        Text("Enter your credential to login"),
-        // Image.asset('assets/logo/logo1.png', height: 200 , width: 200),
+        Text("Masukan Sandi Anda Untuk Masuk"),
       ],
     );
   }
@@ -81,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
               prefixIcon: const Icon(Icons.email)),
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please enter your email';
+              return 'Tolong Masukkan Email Anda';
             }
             return null;
           },
@@ -101,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
           obscureText: true,
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please enter your password';
+              return 'Tolong Masukkan Password Anda';
             }
             return null;
           },
@@ -121,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                 );
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Failed to sign in')),
+                  const SnackBar(content: Text('Gagal Untuk Masuk')),
                 );
               }
             }
@@ -132,7 +135,7 @@ class _LoginPageState extends State<LoginPage> {
             backgroundColor: upper1,
           ),
           child: const Text(
-            "Login",
+            "Masuk",
             style: TextStyle(fontSize: 20, color: Colors.black),
           ),
         ),
@@ -150,13 +153,13 @@ class _LoginPageState extends State<LoginPage> {
             backgroundColor: upper1,
           ),
           child: const Text(
-            "Home",
+            "Halaman Utama",
             style: TextStyle(fontSize: 20, color: Colors.black),
           ),
         ),
         Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children:[Text("Don't have an account? "),
+        children:[Text("Belum Punya Akun? "),
           TextButton(
             onPressed: () {
               Navigator.push(
@@ -165,7 +168,7 @@ class _LoginPageState extends State<LoginPage> {
               );
             },
             child: const Text(
-                "Sign Up",
+                "Daftar",
                 style: TextStyle(color: Colors.black)),
             ),
           ]

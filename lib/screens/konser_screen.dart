@@ -14,27 +14,75 @@ class _KonserScreenState extends State<KonserScreen> {
   final List<Map<String, dynamic>> concerts = [
     {
       'title': 'Concert 1',
-      'date': '2024-07-01',
-      'location': 'Stadium A',
-      'artists': ['Artist 1', 'Artist 2', 'Artist 3']
+      'date': '2024-06-19',
+      'location': 'Rabu',
+      'artists': ['Fiersa Besari', 'Rachun']
     },
     {
       'title': 'Concert 2',
-      'date': '2024-07-15',
-      'location': 'Arena B',
-      'artists': ['Artist 4', 'Artist 5']
+      'date': '2024-06-20',
+      'location': 'Kamis',
+      'artists': ['Gildcoustic', 'MR.jono joni']
     },
     {
       'title': 'Concert 3',
-      'date': '2024-08-01',
-      'location': 'Concert Hall C',
-      'artists': ['Artist 6', 'Artist 7', 'Artist 8', 'Artist 9']
+      'date': '2024-06-21',
+      'location': 'Jumat',
+      'artists': ['The Adams', 'The Sigit', 'The Upstairs']
     },
     {
       'title': 'Concert 4',
-      'date': '2024-08-20',
-      'location': 'Open Air D',
-      'artists': ['Artist 10', 'Artist 11']
+      'date': '2024-06-22',
+      'location': 'Sabtu',
+      'artists': ['Fourtwnty', 'Enau','2/15 Band']
+    },
+    {
+      'title': 'Concert 5',
+      'date': '2024-06-23',
+      'location': 'Minggu',
+      'artists': ['Tipe-X', 'Monkey Boots','Feel High']
+    },
+    {
+      'title': 'Concert 6',
+      'date': '2024-06-24',
+      'location': 'Senin',
+      'artists': ['OOM LEO Berkaraoke ft Ari Lesmana']
+    },
+    {
+      'title': 'Concert 7',
+      'date': '2024-06-25',
+      'location': 'Selasa',
+      'artists': ['Weird Genius', 'Hura Hura Club','Anisya']
+    },
+    {
+      'title': 'Concert 8',
+      'date': '2024-06-26',
+      'location': 'Rabu',
+      'artists': ['Pamungkas', 'The Rain','League Anniversary']
+    },
+    {
+      'title': 'Concert 9',
+      'date': '2024-06-27',
+      'location': 'Kamis',
+      'artists': ['Maliq D Essentials', 'Roots Weiler']
+    },
+    {
+      'title': 'Concert 10',
+      'date': '2024-06-28',
+      'location': 'Jumat',
+      'artists': ['Raisa', 'Mahardias','MVVL']
+    },
+    {
+      'title': 'Concert 11',
+      'date': '2024-06-29',
+      'location': 'Sabtu',
+      'artists': ['NDX AKA', 'Close to Breath']
+    },
+    {
+      'title': 'Concert 12',
+      'date': '2024-06-30',
+      'location': 'Minggu',
+      'artists': ['Slank', 'Respect','The Tambel']
     },
   ];
 

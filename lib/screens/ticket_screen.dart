@@ -17,7 +17,7 @@ class _TicketScreenState extends State<TicketScreen> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: main1,
-          title: const Text('Ticket Screen'),
+          title: const Text('Opsi Tiket'),
           centerTitle: true,
         ),
 

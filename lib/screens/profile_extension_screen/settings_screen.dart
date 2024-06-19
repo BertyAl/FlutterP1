@@ -6,6 +6,8 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:flutter_project1/utils/colors.dart';
 
+import '../profile_screen.dart';
+
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key});
 
@@ -51,7 +53,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Profile updated successfully')),
+
         );
+
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Failed to update profile: $e')),
@@ -183,7 +187,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
               SizedBox(height: 20.0),
               ElevatedButton(
-                onPressed: _updateProfile,
+                onPressed:() async{
+                  await _updateProfile();
+                  Navigator.pop(context); // Navigate back after profile update
+                },
                 style: ElevatedButton.styleFrom(
                   shape: const StadiumBorder(),
                   padding: const EdgeInsets.symmetric(vertical: 16),

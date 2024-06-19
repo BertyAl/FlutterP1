@@ -111,7 +111,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         appBar: AppBar(
           backgroundColor: main1,
           title: Center(
-            child: const Text('Profile'),
+            child: const Text('Profil'),
           ),
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
@@ -184,7 +184,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 },
                 child: ListTile(
                   title: Text(
-                    'Settings ',
+                    'Pengaturan ',
                     style: TextStyle(
                       color: upper1,
                       fontSize: 20,
@@ -205,7 +205,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 },
                 child: ListTile(
                   title: Text(
-                    'Purchase History ',
+                    'Histori Pembelian ',
                     style: TextStyle(
                       color: upper1,
                       fontSize: 20,
@@ -226,7 +226,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 },
                 child: ListTile(
                   title: Text(
-                    'Privacy ',
+                    'Privasi',
                     style: TextStyle(
                       color: upper1,
                       fontSize: 20,
@@ -247,7 +247,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 },
                 child: ListTile(
                   title: Text(
-                    'Help & Support ',
+                    'Bantuan & Dukungan',
                     style: TextStyle(
                       color: upper1,
                       fontSize: 20,
@@ -266,7 +266,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 onTap: _logout,
                 child: ListTile(
                   title: Text(
-                    'Logout ',
+                    'Keluar',
                     style: TextStyle(
                       color: upper1,
                       fontSize: 20,

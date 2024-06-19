@@ -27,7 +27,7 @@ class _KuponScreenState extends State<KuponScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Voucher Screen'),
+        title: Text('Voucher'),
         backgroundColor: main1,
       ),
       body: Padding(

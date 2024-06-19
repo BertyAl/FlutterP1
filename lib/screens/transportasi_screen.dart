@@ -26,7 +26,7 @@ class _TransportasiScreenState extends State<TransportasiScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Transportation Options'),
+        title: Text('Opsi Transportasi'),
         backgroundColor: main1,
       ),
       body: ListView.builder(

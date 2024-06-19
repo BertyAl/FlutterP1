@@ -49,7 +49,7 @@ class ProductList extends StatelessWidget {
             ),
             onPressed: () => onAddToCart(product),
 
-            child: Text('Add to Cart'),
+            child: Text('Pesan'),
 
           ),
         );
@@ -80,7 +80,7 @@ class _OrderScreenState extends State<OrderScreen> {
     child: Scaffold(
       appBar: AppBar(
         backgroundColor: main1,
-        title: Text('Ordering Page'),
+        title: Text('Pesanan'),
         actions: [
           IconButton(
             icon: Icon(Icons.shopping_cart),
@@ -115,7 +115,7 @@ class CartPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: main1,
-        title: Text('Cart'),
+        title: Text('Keranjang'),
         actions: [
           IconButton(
             icon: Icon(Icons.payment),

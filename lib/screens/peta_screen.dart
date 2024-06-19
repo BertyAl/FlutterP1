@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart';
+
+import '../utils/colors.dart';
 
 class PetaScreen extends StatefulWidget {
   const PetaScreen({super.key});
@@ -9,26 +12,28 @@ class PetaScreen extends StatefulWidget {
 }
 
 class _PetaScreenState extends State<PetaScreen> {
-  late GoogleMapController mapController;
-
-  final LatLng _center = const LatLng(45.521563, -122.677433);
-
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
-  }
+  final MapController _mapController = MapController();
+  final LatLng _center = LatLng(-6.147626392457103, 106.84612730753477);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Map Page'),
+        title: Text('Peta Lokasi'),
+        backgroundColor: main1,
       ),
-      body: GoogleMap(
-        onMapCreated: _onMapCreated,
-        initialCameraPosition: CameraPosition(
-          target: _center,
-          zoom: 11.0,
+      body: FlutterMap(
+        mapController: _mapController,
+        options: MapOptions(
+          center: _center,
+          zoom: 16.0,
         ),
+        children: [
+          TileLayer(
+            urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            subdomains: ['a', 'b', 'c'],
+          ),
+        ],
       ),
     );
   }
