@@ -22,7 +22,6 @@ class _SelectionButtonPageState extends State<SelectionButtonPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     List<Seat> seats = Provider.of<SelectionButtonProvider>(context, listen: false).selectedSeats;
 
@@ -34,7 +33,6 @@ class _SelectionButtonPageState extends State<SelectionButtonPage> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     searchController.dispose();
   }

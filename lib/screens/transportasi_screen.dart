@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../utils/colors.dart';
 
 class TransportasiScreen extends StatefulWidget {
@@ -10,34 +9,31 @@ class TransportasiScreen extends StatefulWidget {
 }
 
 class _TransportasiScreenState extends State<TransportasiScreen> {
-  // Example transportation options
-  final List<Map<String, String>> transportationOptions = [
-    {'type': 'Transjakarta', 'route': 'Rute: Tangerang'},
-    {'type': 'Kereta Api', 'route': 'Rute: Bogor'},
-    {'type': 'Kereta Api', 'route': 'Rute: Bogor'},
-    {'type': 'Kereta Api', 'route': 'Rute: Bogor'},
-    {'type': 'Kereta Api', 'route': 'Rute: Bogor'},
-    {'type': 'Taxi', 'route': 'Rute: Tanah Abang'},
-    {'type': 'Taxi', 'route': 'Rute: Tanah Abang'},
-    {'type': 'Taxi', 'route': 'Rute: Tanah Abang'},
+  // Example pickup tram options
+  final List<Map<String, String>> tramOptions = [
+    {'type': 'Shuttle Bus', 'route': 'Main Hall - Rute A', 'time': '12:00',},
+    {'type': 'Shuttle Bus', 'route': 'Main Hall - Rute B', 'time': '14:00',},
+    {'type': 'Shuttle Bus', 'route': 'Main Hall - Rute C', 'time': '16:00',},
+    {'type': 'Shuttle Bus', 'route': 'Main Hall - Rute D', 'time': '18:00',},
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Opsi Transportasi'),
+        title: Text('Jadwal Operasi Shuttle Bus'),
         backgroundColor: main1,
       ),
       body: ListView.builder(
-        itemCount: transportationOptions.length,
+        itemCount: tramOptions.length,
         itemBuilder: (context, index) {
-          final option = transportationOptions[index];
+          final option = tramOptions[index];
           return Card(
             child: ListTile(
-              leading: Icon(Icons.directions_bus), // You can change the icon based on transportation type
+              leading: Icon(Icons.tram, color: main1), // Tram icon
               title: Text(option['type'] ?? ''),
               subtitle: Text(option['route'] ?? ''),
+              trailing: Text(option['time']?? ''),
             ),
             color: upper1,
           );
@@ -47,5 +43,3 @@ class _TransportasiScreenState extends State<TransportasiScreen> {
     );
   }
 }
-
-

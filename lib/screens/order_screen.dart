@@ -1,148 +1,146 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_project1/utils/colors.dart';
-import 'package:flutter_project1/responsive/navbar.dart';
+import 'payment_screen.dart'; // Import the payment screen
+import 'ticket_screen.dart'; // Import your Article class
 
+class OrderScreen extends StatelessWidget {
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
-class OrderScreen extends StatefulWidget {
-  const OrderScreen({super.key});
+  Future<void> _removeTicketFromCart(BuildContext context, String docId) async {
+    final User? user = _auth.currentUser;
+    if (user != null) {
+      await _firestore.collection('users').doc(user.uid).collection('cart').doc(docId).delete();
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Pesanan dikeluarkan dari keranjang')));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Pengguna belum masuk')));
+    }
+  }
 
-  @override
-  _OrderScreenState createState() => _OrderScreenState();
-}
-class Product {
-  final String name;
-  final double price;
-  final String imageUrl;
-
-  Product({
-    required this.name,
-    required this.price,
-    required this.imageUrl,
-  });
-}
-final List<Product> products = [
-  Product(name: 'Tiket Masuk (Tanpa Konser)', price: 40.000, imageUrl: 'https://awsimages.detik.net.id/visual/2023/06/15/pengunjung-memadati-jakarta-fair-kemayoran-jfk-2023-di-jiexpo-kemayoran-jakarta-rabu-1462023-cnbc-indonesiafaisal-rahman-4_169.jpeg?w=650'),
-  Product(name: 'Tiket Masuk + Konser REGULER', price: 80.000, imageUrl: 'https://dewatiket.id/blog/wp-content/uploads/2023/06/Jadwal-Konser-Jakarta-Fair-2023-1068x601.jpg'),
-  Product(name: 'Tiket Masuk + Konser VIP', price: 100.000, imageUrl: 'https://dewatiket.id/blog/wp-content/uploads/2023/06/Jadwal-Konser-Jakarta-Fair-2023-1068x601.jpg'),
-  Product(name: 'Tiket VIP + REGULER', price: 450.000, imageUrl: 'https://image.popmama.com/content-images/post/20230621/untitled-design-46png-9c5899f6a793427c9b78e61f123e678a.png?width=600&height=auto'),
-];
-
-class ProductList extends StatelessWidget {
-  final List<Product> products;
-  final Function(Product) onAddToCart;
-
-  ProductList({required this.products, required this.onAddToCart});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: products.length,
-      itemBuilder: (context, index) {
-        final product = products[index];
-        return ListTile(
-          leading: Image.network(product.imageUrl),
-          title: Text(product.name),
-          subtitle: Text('\Rp.${product.price.toString()}00'),
-          trailing: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: upper1,
-            ),
-            onPressed: () => onAddToCart(product),
-
-            child: Text('Pesan'),
-
-          ),
+  void _navigateToPaymentScreen(BuildContext context) async {
+    final User? user = _auth.currentUser;
+    if (user != null) {
+      QuerySnapshot cartSnapshot = await _firestore.collection('users').doc(user.uid).collection('cart').get();
+      List<Article> cartItems = cartSnapshot.docs.map((doc) {
+        final data = doc.data() as Map<String, dynamic>;
+        return Article(
+          title: data['title'] ?? 'Unknown Title',
+          imageUrl: data['imageUrl'] ?? '',
+          author: data['author'] ?? 'Unknown Author',
+          price: data['price'] ?? 0,
         );
-      },
-    );
-  }
-}
+      }).toList();
 
-class _OrderScreenState extends State<OrderScreen> {
-  List<Product> cart = [];
+      // Calculate total amount
+      int totalAmount = 0;
+      for (var item in cartItems) {
+        totalAmount += item.price;
+      }
 
-  void _addToCart(Product product) {
-    setState(() {
-      cart.add(product);
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return WillPopScope(
-        onWillPop: () async {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => SimpleBottomNavigation()), // Ensure HomePage is imported
+      // Navigate to payment screen with total amount
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => PaymentScreen(totalAmount: totalAmount),
+        ),
       );
-      return false;
-    },
-    child: Scaffold(
-      appBar: AppBar(
-        backgroundColor: main1,
-        title: Text('Pesanan'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.shopping_cart),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => CartPage(cart: cart),
-                ),
-              );
-            },
-          ),
-        ],
-      ),
-      body: ProductList(
-        products: products,
-        onAddToCart: _addToCart,
-      ),
-      backgroundColor: Colors.white,
-    ),
-    );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Pengguna Belum masuk')));
+    }
   }
-}
-
-class CartPage extends StatelessWidget {
-  final List<Product> cart;
-
-  CartPage({required this.cart});
 
   @override
   Widget build(BuildContext context) {
+    final User? user = _auth.currentUser;
+
+    if (user == null) {
+      return Scaffold(
+        appBar: AppBar(
+          backgroundColor: main1,
+          title: const Text('Pesanan'),
+          centerTitle: true,
+        ),
+        body: Center(
+          child: Text('Pengguna Belum Masuk'),
+        ),
+        backgroundColor: Colors.white,
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: main1,
-        title: Text('Keranjang'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.payment),
-            onPressed: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => CartPage(cart: cart),
-              //   ),
-              // );
-            },
-          ),
-        ],
+        title: const Text('Pesanan'),
         centerTitle: true,
       ),
-      body: ListView.builder(
-        itemCount: cart.length,
-        itemBuilder: (context, index) {
-          final product = cart[index];
-          return ListTile(
-            leading: Image.network(product.imageUrl),
-            title: Text(product.name),
-            subtitle: Text('\Rp.${product.price.toString()}00'),
+      body: StreamBuilder<QuerySnapshot>(
+        stream: _firestore.collection('users').doc(user.uid).collection('cart').snapshots(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          }
+          if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+            return Center(child: Text('No items in cart'));
+          }
+
+          final cartItems = snapshot.data!.docs;
+
+          return ListView.builder(
+            itemCount: cartItems.length,
+            itemBuilder: (context, index) {
+              final item = cartItems[index];
+              final data = item.data() as Map<String, dynamic>;
+              final article = Article(
+                title: data['title'] ?? 'Unknown Title',
+                imageUrl: data['imageUrl'] ?? '',
+                author: data['author'] ?? 'Unknown Author',
+                price: data['price'] ?? 0,
+              );
+              return ListTile(
+                leading: Image.network(article.imageUrl),
+                title: Text(article.title),
+                subtitle: Text(article.author),
+                trailing: IconButton(
+                  icon: Icon(Icons.delete, color: Colors.red),
+                  onPressed: () async {
+                    await _removeTicketFromCart(context, item.id); // Pass context here
+                  },
+                ),
+              );
+            },
           );
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: main1,
+        onPressed: () => _navigateToPaymentScreen(context),
+        child: Icon(Icons.payment),
+      ),
       backgroundColor: Colors.white,
     );
+  }
+}
+
+class Article {
+  final String title;
+  final String imageUrl;
+  final String author;
+  final int price;
+
+  Article({
+    required this.title,
+    required this.imageUrl,
+    required this.author,
+    required this.price,
+  });
+
+  Map<String, dynamic> toMap() {
+    return {
+      'title': title,
+      'author': author,
+      'imageUrl': imageUrl,
+      'price': price,
+    };
   }
 }

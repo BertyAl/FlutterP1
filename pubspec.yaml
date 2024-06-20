@@ -36,12 +36,9 @@ dependencies:
   firebase_core: ^3.1.0
   firebase_analytics: ^11.0.1
   firebase_auth: ^5.1.0
-  #app_check setelah di upload ke appstore baru dapat menggunakan SHA certificate
   firebase_app_check: ^0.3.0+1
   firebase_storage: ^12.0.1
   cloud_firestore: ^5.0.1
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
   book_my_seat: ^1.0.1
   image_picker: ^0.8.7+4
@@ -49,6 +46,8 @@ dependencies:
   google_maps_flutter: ^2.2.0
   flutter_map: ^4.0.0
   latlong2: ^0.8.1
+  flutter_form_builder: ^9.3.0
+  form_builder_validators: ^10.0.1
 
 dev_dependencies:
   flutter_test:

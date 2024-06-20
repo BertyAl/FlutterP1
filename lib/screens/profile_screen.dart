@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_project1/responsive/navbar.dart';
+import 'package:flutter_project1/screens/profile_extension_screen/bantuan_screen.dart';
+import 'package:flutter_project1/screens/profile_extension_screen/privasi_screen.dart';
 import 'package:flutter_project1/utils/colors.dart';
 import 'package:flutter_project1/screens/profile_extension_screen/settings_screen.dart';
 import 'package:flutter_project1/screens/login_screen.dart';
@@ -222,11 +224,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Divider(),
               GestureDetector(
                 onTap: () {
-                  print("Privacy Clicked");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PrivacyPolicyScreen()),
+                  );
                 },
                 child: ListTile(
                   title: Text(
-                    'Privasi',
+                    'Kebijakan Privasi',
                     style: TextStyle(
                       color: upper1,
                       fontSize: 20,
@@ -243,7 +248,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Divider(),
               GestureDetector(
                 onTap: () {
-                  print("Help & Support Clicked");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HelpSupportScreen()),
+                  );
                 },
                 child: ListTile(
                   title: Text(
@@ -294,7 +302,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'You are not logged in',
+            'Kamu Belum Masuk',
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
@@ -310,7 +318,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     (route) => false,
               );
             },
-            child: Text('Login'),
+            child: Text('Masuk'),
             style: ElevatedButton.styleFrom(
               backgroundColor: upper1
             ),
