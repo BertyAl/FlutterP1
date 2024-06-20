@@ -9,6 +9,7 @@ import 'package:flutter_project1/screens/transportasi_screen.dart';
 import 'package:flutter_project1/screens/kupon_screen.dart';
 import 'package:flutter_project1/screens/konser_screen.dart';
 import 'package:flutter_project1/screens/peta_screen.dart';
+import 'package:flutter_project1/screens/activity_screen.dart';  // Import the activities screen
 
 class Homepages extends StatefulWidget {
   const Homepages({Key? key}) : super(key: key);
@@ -109,11 +110,21 @@ class _HomepagesState extends State<Homepages> {
               Padding(
                 padding: const EdgeInsets.all(10.0),
               ),
-              NewsList(), // Add the NewsList widget here
+              NewsList(),
             ],
           ),
         ),
         backgroundColor: Colors.white,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ActivitiesScreen()),
+            );
+          },
+          child: Icon(Icons.directions_run),
+          backgroundColor: main1,
+        ),
       ),
     );
   }
@@ -324,7 +335,7 @@ class NewsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 400, 
+      height: 400,
       child: ListView(
         scrollDirection: Axis.vertical,
         children: [
@@ -337,7 +348,7 @@ class NewsList extends StatelessWidget {
               'CSR jakartafair',
               'Dalam program CSR peduli anak, Jakarta Fair Kemayoran akan merangkul beberapa panti asuhan yang berbeda untuk menyelenggarakan kegiatan penuh interaksi yang menarik dengan anak-anak panti. Yang lebih istimewa, JFK juga akan melibatkan panti asuhan khusus untuk anak-anak difabel dalam program ini.Setelahnya, Jakarta Fair Kemayoran memiliki agenda rutin yang bekerja sama langsung dengan Palang Merah Indonesia (PMI), yakni kegiatan donor darah. Menyambut tahun ketujuhnya, program donor darah telah menjadi unggulan dalam CSR yang dinantikan oleh pengunjung JFK serta masyarakat sekitar.'),
           NewsItem(
-              'https://jiexpo-bucket-1.s3.ap-southeast-3.amazonaws.com/img/staticpages/qzvnM18RghUkzQ7Fs1ou7oNcY6YCd5vMBTvhgTA0.jpg?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAW3MD6OHSJ7CO7SGB%2F20240620%2Fap-southeast-3%2Fs3%2Faws4_request&X-Amz-Date=20240620T150004Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Signature=94c52e0e841e32fb941c13644f5916e44038a4f2b81942c377cdbb3766775f9c',
+              'https://eventguide.id/wp-content/uploads/2024/06/Karnaval-300x250pxl.jpeg',
               'semarak warna warni',
               'Parade karnaval di Jakarta Fair sudah menjadi salah satu atraksi yang ditunggu-tunggu oleh para pengunjung JFK setiap tahunnya. Tahun ini pun Semarak Warna Warni Karnaval akan diselenggarakan sebanyak tujuh kali selama berlangsungnya Jakarta Fair Kemayoran pada 12 Juni - 14 Juli 2024.'),
         ],
@@ -362,7 +373,7 @@ class NewsItem extends StatelessWidget {
           builder: (BuildContext context) {
             return AlertDialog(
               title: Text(title),
-              content: SingleChildScrollView( // Ensures content is scrollable if it overflows
+              content: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
