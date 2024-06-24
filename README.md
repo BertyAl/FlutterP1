@@ -1,16 +1,8 @@
-# flutter_project1
+# SD_NEGERI PROJECT
 
-A new Flutter project.
+project for endterm where we combine PRJ event with Teh Botol.
 
-## Getting Started
+## Link
+Figma : https://www.figma.com/proto/Ze5bLLaNJp0KXDWmcMXv2w/UAS_SOFTDEV?node-id=0-1&t=Iaq48zfTw0AljIPu-1
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+DEMO : [![Watch the video](https://img.youtube.com/vi/_bH3_hP3m_k/maxresdefault.jpg)](https://youtu.be/_bH3_hP3m_k)
